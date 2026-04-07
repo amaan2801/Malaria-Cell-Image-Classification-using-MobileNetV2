@@ -1,39 +1,73 @@
 Malaria Cell Image Classification using MobileNetV2
-
-This project focuses on building a deep learning system to automatically detect malaria infection from microscopic blood smear images. It uses transfer learning with MobileNetV2 and TensorFlow to classify cells as either parasitized or uninfected. The aim is to create a reliable and efficient solution that can support early diagnosis, especially in areas with limited medical resources.
-
 Overview
 
-The model is built using a pretrained MobileNetV2 network, which helps in extracting meaningful features from images without training from scratch. A custom classification layer is added on top to perform binary classification.
+This project presents a deep learning-based system for detecting malaria infection from microscopic blood smear images. It uses transfer learning with MobileNetV2 to classify cells as parasitized or uninfected. The system is designed to support fast and accurate diagnosis, especially in low-resource healthcare settings.
 
-The training process is divided into two stages. In the first stage, the base model remains frozen and only the top layers are trained. In the second stage, selected deeper layers are fine-tuned to improve the model’s performance and adaptability to the dataset.
+Objectives
+Classify blood smear images into parasitized and uninfected categories
+Leverage transfer learning to improve model performance
+Improve generalization using data augmentation techniques
+Evaluate model performance using multiple metrics
+Generate visual insights for better understanding of predictions
+System Architecture
 
-To make the model more robust, data augmentation techniques such as flipping and brightness adjustments are applied. This helps the model generalize better to unseen data.
+The system follows a structured pipeline consisting of the following stages:
 
-Features
-
-The system automatically loads and preprocesses the malaria dataset using TensorFlow Datasets. It evaluates performance using key metrics such as accuracy, precision, recall, and AUC.
-
-It also generates useful visualizations including training performance graphs, confusion matrix, ROC curve, and prediction samples. These outputs help in understanding how well the model is performing.
-
-The trained models are saved and can be reused for inference. The entire implementation supports GPU acceleration, making it suitable for faster training on platforms like Google Colab.
-
+Dataset Loading and Preprocessing
+Data Augmentation
+Feature Extraction using MobileNetV2
+Model Training (Classification Head)
+Fine-Tuning of Deeper Layers
+Model Evaluation
+Visualization of Results
 Model Details
+Base Model: MobileNetV2 (pretrained on ImageNet)
+Classification Head:
+Global Average Pooling
+Dense Layers with Batch Normalization
+Dropout for regularization
+Sigmoid output layer for binary classification
+Training Strategy
+Stage 1: Freeze base model and train top layers
+Stage 2: Unfreeze deeper layers and fine-tune
 
-The architecture is based on MobileNetV2 pretrained on ImageNet. A lightweight classification head is added, consisting of fully connected layers with batch normalization and dropout to prevent overfitting. The final output layer uses a sigmoid activation function for binary classification.
+Techniques used:
 
-Workflow
+Data augmentation (flipping, brightness, contrast)
+EarlyStopping to prevent overfitting
+ModelCheckpoint to save best model
+ReduceLROnPlateau for learning rate adjustment
+Evaluation Metrics
+Accuracy
+Precision
+Recall
+AUC Score
+Confusion Matrix
+ROC Curve
+Outputs
 
-The complete pipeline includes dataset loading, preprocessing, train-test splitting, model training, fine-tuning, evaluation, and result visualization. All steps are automated within a single script, making the project easy to run and reproduce.
+The system generates:
 
+Training performance graphs
+Confusion matrix
+ROC curve
+Sample predictions
+Technologies Used
+Python
+TensorFlow / Keras
+NumPy
+Matplotlib
+Seaborn
+Scikit-learn
 Objective
 
-The primary goal of this project is to develop a scalable AI-based solution that can assist healthcare professionals in detecting malaria quickly and accurately, reducing dependency on manual analysis.
+The goal of this project is to build a scalable and reliable AI-based solution that can assist healthcare professionals in early malaria detection and reduce manual diagnostic effort.
 
-Future Scope
-
-The project can be extended by deploying it as a web application, converting it for mobile devices using TensorFlow Lite, integrating with cloud platforms, and adding model explainability techniques such as Grad-CAM to better interpret predictions.
-
+Future Improvements
+Deploy as a web application using Flask or Streamlit
+Convert model to TensorFlow Lite for mobile deployment
+Integrate with cloud platforms such as AWS or GCP
+Add explainability techniques like Grad-CAM
 License
 
 This project is open-source and available under the MIT License.
