@@ -2,7 +2,9 @@
 
 ## Overview
 
-This project presents a deep learning-based system for detecting malaria infection from microscopic blood smear images. It uses transfer learning with MobileNetV2 to classify cells as parasitized or uninfected. The system is designed to support fast and accurate diagnosis, especially in low-resource healthcare settings.
+This project presents a deep learning-based system for detecting malaria infection from microscopic blood smear images. It leverages transfer learning with MobileNetV2 to classify cells as parasitized or uninfected. 
+
+The system is enhanced with an interactive Streamlit web application and Grad-CAM visualization to provide both predictions and visual explanations, making it suitable for real-world healthcare assistance and AI-based diagnostics.
 
 ---
 
@@ -12,7 +14,8 @@ This project presents a deep learning-based system for detecting malaria infecti
 - Leverage transfer learning to improve model performance  
 - Improve generalization using data augmentation techniques  
 - Evaluate model performance using multiple metrics  
-- Generate visual insights for better understanding of predictions  
+- Provide an interactive web interface for real-time predictions  
+- Generate visual explanations using Grad-CAM  
 
 ---
 
@@ -26,7 +29,8 @@ The system follows a structured pipeline consisting of the following stages:
 4. Model Training (Classification Head)  
 5. Fine-Tuning of Deeper Layers  
 6. Model Evaluation  
-7. Visualization of Results  
+7. Streamlit Web App Deployment  
+8. Grad-CAM Visualization for Explainability  
 
 ---
 
@@ -57,10 +61,9 @@ The system follows a structured pipeline consisting of the following stages:
 
 ## Evaluation Metrics
 
-- Accuracy  
-- Precision  
-- Recall  
-- AUC Score  
+- Accuracy: ~95%  
+- Precision and Recall: Balanced performance  
+- AUC Score: ~0.98  
 - Confusion Matrix  
 - ROC Curve  
 
@@ -72,6 +75,8 @@ The system follows a structured pipeline consisting of the following stages:
 - Confusion matrix  
 - ROC curve  
 - Sample predictions  
+- Interactive Streamlit web application  
+- Grad-CAM heatmaps for model explainability  
 
 ---
 
@@ -83,21 +88,24 @@ The system follows a structured pipeline consisting of the following stages:
 - Matplotlib  
 - Seaborn  
 - Scikit-learn  
+- Streamlit  
+- OpenCV  
 
 ---
 
 ## Objective
 
-The goal of this project is to build a scalable and reliable AI-based solution that can assist healthcare professionals in early malaria detection and reduce manual diagnostic effort.
+The goal of this project is to build a scalable and reliable AI-based solution that can assist healthcare professionals in early malaria detection, reduce manual diagnostic effort, and provide explainable AI outputs for better trust and interpretability.
 
 ---
 
 ## Future Improvements
 
-- Deploy as a web application using Flask or Streamlit  
+- Deploy application on cloud platforms for public access  
 - Convert model to TensorFlow Lite for mobile deployment  
-- Integrate with cloud platforms such as AWS or GCP  
-- Add explainability techniques like Grad-CAM  
+- Improve Grad-CAM with advanced techniques (Grad-CAM++)  
+- Add real-time camera input support  
+- Optimize model for faster inference  
 
 ---
 
