@@ -1,5 +1,6 @@
+streamlit
 tensorflow
-tensorflow-datasets
 numpy
+pillow
 matplotlib
-scikit-learn
+opencv-python
